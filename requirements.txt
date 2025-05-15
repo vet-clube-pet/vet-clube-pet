@@ -3,3 +3,4 @@ Flask-SQLAlchemy
 fpdf
 pandas
 openpyxl
+gunicorn
