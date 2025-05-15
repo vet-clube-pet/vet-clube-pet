@@ -46,9 +46,3 @@ def beneficios(usuario_id):
 @app.route('/cadastrar_usuario')
 def cadastrar_usuario():
     return render_template('cadastrar_usuario.html')
-
-# ✅ ROTA TEMPORÁRIA PARA CRIAR TABELAS
-@app.route('/criar-tabelas')
-def criar_tabelas():
-    db.create_all()
-    return "Tabelas criadas com sucesso!"
