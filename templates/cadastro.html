@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - Vet Clube Pet</title>
+</head>
+<body>
+    <h1>Cadastro de Tutor e Pet</h1>
+    <form method="POST">
+        <label>Nome do Tutor:</label><br>
+        <input type="text" name="nome" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Telefone:</label><br>
+        <input type="text" name="telefone" required><br><br>
+
+        <label>Nome do Pet:</label><br>
+        <input type="text" name="pet" required><br><br>
+
+        <label>Plano:</label><br>
+        <select name="plano" required>
+            <option value="Bronze">Bronze</option>
+            <option value="Prata">Prata</option>
+            <option value="Ouro">Ouro</option>
+        </select><br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

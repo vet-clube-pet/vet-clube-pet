@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Cadastros</title>
+</head>
+<body>
+    <h1>Cadastros Realizados</h1>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Pet</th>
+                <th>Plano</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cadastros %}
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.telefone }}</td>
+                <td>{{ item.pet }}</td>
+                <td>{{ item.plano }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/">Voltar à Página Inicial</a>
+</body>
+</html>

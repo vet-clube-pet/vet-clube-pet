@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Benefícios - {% raw %}{{ cadastro.nome }}{% endraw %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <h1 class="mb-3">Benefícios usados por {% raw %}{{ cadastro.nome }}{% endraw %} (Plano: {% raw %}{{ cadastro.plano }}{% endraw %})</h1>
+
+    {% raw %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+        {% for category, message in messages %}
+          <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }}">{{ message }}</div>
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% endraw %}
+
+    <form method="POST" class="mb-4">
+        <div class="row g-2 align-items-center">
+            <div class="col-auto">
+                <label class="form-label">Registrar novo benefício:</label>
+                <select name="tipo" class="form-select" required>
+                    <option value="Consulta">Consulta</option>
+                    <option value="Exame">Exame</option>
+                    <option value="Ultrassom">Ultrassom</option>
+                    <option value="Vacina">Vacina</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mt-4">Registrar</button>
+            </div>
+        </div>
+    </form>
+
+    <h2>Histórico:</h2>
+    <ul class="list-group">
+        {% raw %}
+        {% for b in beneficios %}
+            <li class="list-group-item">{{ b.tipo }} - {{ b.data_uso.strftime('%d/%m/%Y %H:%M') }}</li>
+        {% else %}
+            <li class="list-group-item">Nenhum benefício usado ainda.</li>
+        {% endfor %}
+        {% endraw %}
+    </ul>
+
+    <div class="mt-4">
+        <a href="/relatorio/{% raw %}{{ cadastro.id }}{% endraw %}" class="btn btn-secondary">📄 Gerar PDF</a>
+        <a href="/relatorio_excel/{% raw %}{{ cadastro.id }}{% endraw %}" class="btn btn-success">📊 Exportar Excel</a>
+    </div>
+
+    <a href="/cadastros" class="btn btn-link mt-4">← Voltar à lista de cadastros</a>
+</body>
+</html>
