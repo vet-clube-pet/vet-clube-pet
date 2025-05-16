@@ -1,7 +1,24 @@
-<h1>Login</h1>
-<form method="POST">
-    Email: <input type="email" name="email" required><br><br>
-    Senha: <input type="password" name="senha" required><br><br>
-    <button type="submit">Entrar</button>
-</form>
-<a href="/cadastrar_usuario">Cadastrar novo usuário</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Vet Clube Pet</title>
+</head>
+<body>
+    <h2>Login do Sistema Vet Clube Pet</h2>
+
+    {% if erro %}
+        <p style="color: red;">{{ erro }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
