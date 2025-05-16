@@ -1,3 +1,4 @@
+
 from flask import render_template, request, redirect, url_for, session
 from app import app, db
 from models import Usuario, Beneficio, UsuarioSistema
@@ -35,7 +36,6 @@ def sucesso():
 
 @app.route('/cadastros')
 def cadastros():
-    # ✅ Protege rota (só acessível logado)
     if 'usuario_id' not in session:
         return redirect(url_for('login'))
 
